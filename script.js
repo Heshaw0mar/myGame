@@ -17,7 +17,7 @@ score0El.textContent = 0;
 score1El.textContent = 0;
 diceEl.classList.add('hidden');
 
-let scores = [0, 0];
+const scores = [0, 0];
 let currentScore = 0;
 let activePlayer = 0;
 let playing = true;
@@ -35,6 +35,7 @@ btnRoll.addEventListener('click', function () {
   if (playing) {
     // 1. Generating a random dice roll
     const dice = Math.trunc(Math.random() * 6 + 1);
+    console.log(dice);
 
     // 2. Display dice
     diceEl.classList.remove('hidden');
@@ -82,8 +83,6 @@ btnHold.addEventListener(`click`, function () {
 // reset the game
 btnNew.addEventListener(`click`, function () {
   playing = true;
-  currentScore = 0;
-  activePlayer = 0;
   diceEl.classList.add('hidden');
   document
     .querySelector(`.player--${activePlayer}`)
@@ -93,5 +92,4 @@ btnNew.addEventListener(`click`, function () {
   score1El.textContent = 0;
   current0El.textContent = 0;
   current1El.textContent = 0;
-  scores = [0, 0];
 });
